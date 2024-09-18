@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAFFLE WITH BIG ARMS :D</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: hsl(53, 97%, 87%);
+            margin: 0;
+        }
+
+        .waffle {
+            width: 200px;
+            height: 200px;
+            background-color: #d19a2c;
+            position: relative;
+            border-radius: 50%;
+            box-shadow: inset 0 0 0 5px #a57c2d;
+        }
+
+        .waffle::before,
+        .waffle::after {
+            content: '';
+            position: absolute;
+            background-color: #a57c2d;
+        }
+
+        .waffle::before {
+            width: 10px;
+            height: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .waffle::after {
+            height: 10px;
+            width: 200px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .grid {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.2);
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(to right, transparent 48%, rgba(255, 255, 255, 0.2) 50%, transparent 52%);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        .face {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .eye {
+            width: 20px;
+            height: 20px;
+            background-color: #fff; 
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 10px;
+            position: relative;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .left-eye::after,
+        .right-eye::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background-color: #000;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .mouth {
+            width: 40px;
+            height: 10px;
+            background-color: #000;
+            margin: 10px auto 0;
+        }
+
+        .arm {
+            width: 40px;
+            height: 100px;
+            background-color: #d19a2c;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            border-radius: 20px;
+            box-shadow: 0 0 0 5px #a57c2d;
+        }
+
+        .left-arm {
+            left: -50px;
+            transform: translateY(-50%) rotate(20deg);
+        }
+
+        .right-arm {
+            right: -50px;
+            transform: translateY(-50%) rotate(-20deg);
+        }
+
+        .left-arm::after,
+        .right-arm::after {
+            content: '';
+            position: absolute;
+            background-color: #a57c2d;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            bottom: -20px;
+        }
+
+        .left-arm::after {
+            left: -10px;
+        }
+
+        .right-arm::after {
+            right: -10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="waffle">
+        <div class="grid"></div>
+        <div class="face">
+            <div class="eye left-eye"></div>
+            <div class="eye right-eye"></div>
+            <div class="mouth"></div>
+        </div>
+        <div class="arm left-arm"></div>
+        <div class="arm right-arm"></div>
+    </div>
+</body>
+</html>
