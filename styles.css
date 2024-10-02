@@ -1,0 +1,20 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 0;
+    background-color: rgb(57, 248, 168); /* Optional: Light background for contrast */
+}
+
+#target {
+    width: 120px; /* Width of the target including the border */
+    height: 120px; /* Height of the target including the border */
+    background-color: rgb(57, 248, 168); /* Color of the target */
+    border-radius: 50%; /* Make it circular */
+    position: absolute; /* Allow it to move anywhere on the screen */
+    cursor: pointer; /* Change cursor to pointer */
+    border: 5px solid white; /* Add a circular border */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
