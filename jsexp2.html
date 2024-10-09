@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRIANGLES</title>
+    <style>
+        body {
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            background-color: rgb(167, 213, 167)
+        }
+        .trail {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 20px solid rgba(255, 255, 255, 0.8);
+            opacity: 1;
+            transition: transform 0.5s, opacity 0.5s;
+        }
+    </style>
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    let isDrawing = false;
+
+    $(document).mousedown(function(e) {
+        isDrawing = true;
+        createTrail(e.pageX, e.pageY);
+    });
+
+    $(document).mouseup(function() {
+        isDrawing = false;
+        $('.trail').remove();
+    });
+
+    $(document).mousemove(function(e) {
+        if (isDrawing) {
+            createTrail(e.pageX, e.pageY);
+        }
+    });
+
+    function createTrail(x, y) {
+        const $trail = $('<div class="trail"></div>').css({
+            left: x - 10,
+            top: y - 20,
+            transform: `rotate(${Math.random() * 360}deg)`
+        });
+
+        $('body').append($trail);
+
+       
+        setTimeout(() => {
+            $trail.css({
+                transform: `scale(2) rotate(${Math.random() * 360}deg)`,
+                opacity: '0'
+            });
+        }, 10); 
+
+        
+        setTimeout(() => {
+            $trail.remove();
+        }, 500);
+    }
+});
+</script>
+</body>
+</html>
